@@ -23,7 +23,7 @@ const isEthernalDomain = window.location.host.endsWith(process.env.VUE_APP_MAIN_
 if (isEthernalDomain) {
     const splitDomain = window.location.host.split('.')
     // URL needs to start with app and must be at least a subdomain
-    if(!window.location.host.startsWith('app.')
+    if((!window.location.host.startsWith('app-') || !window.location.host.startsWith('app.'))
         && splitDomain.length > 2) {
         store.dispatch('updatePublicExplorerSlug', splitDomain[0]);
     }
